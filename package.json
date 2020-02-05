@@ -24,6 +24,8 @@
     "inquirer": "^6.3.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
     "jest": "^24.8.0"
   }
 }
