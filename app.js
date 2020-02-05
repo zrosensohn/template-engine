@@ -46,6 +46,11 @@ function employeeInput() {
             name: "id"
         },
         {
+            type: "input",
+            message: "Enter Email",
+            name: "email"
+        },
+        {
             type: "list",
             message: "Select Title",
             choices: ["Manager", "Engineer", "Intern"],
