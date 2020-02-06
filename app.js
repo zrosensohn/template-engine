@@ -49,7 +49,9 @@ async function employeeCLI() {
 
         const server = http.createServer(handleRequest);
         server.listen(PORT, function() {
-            console.log("Listening of port: " + PORT);
+            console.log("Webpage being rendered...");
+            console.log("Listening on port: " + PORT);
+            console.log("site live at http://localhost:" + PORT);
         })
 
     }
