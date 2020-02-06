@@ -110,6 +110,15 @@ function addEmployee() {
                 break;
             default:
                 console.log(employeeArr);
+                employeeArr.forEach(item => {
+                    if (item instanceof Manager) {
+                        console.log(item.getId());
+                        console.log(item.getName());
+                        console.log(item.getRole());
+                        console.log(item.getEmail());
+                        console.log(item.getOfficeNumber());
+                    }
+                });
                 break;
         }
     });
