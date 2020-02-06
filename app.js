@@ -1,33 +1,35 @@
 const inq = require('inquirer');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+
+
 let employeeArr = [];
 
 //Async Function for Adding Employees and creating classes
 async function employeeCLI() {
     let employeeData = await employeeInput();
     let employee = employeeData.employee;
+    let name = employeeData.name;
+    let id = employeeData.id;
+    let email = employeeData.email;
     
     if (employee === "Manager"){
         let managerPhone = await managerInput();
-        employeeData.phone = managerPhone.phone;
-        employeeArr.push(employeeData);
-        //create manager class here
-        ///////////////////////////
+        let manager = new Manager(name, id, email, managerPhone.phone);
+        employeeArr.push(manager);
         addEmployee();
 
     } else if (employee === "Engineer") {
         let gitHub = await engineerInput();
-        employeeData.github = gitHub.github;
-        employeeArr.push(employeeData);
-        //create Engineer class here
-        ///////////////////////////
+        let engineer = new Engineer(name, id, email, gitHub.github);
+        employeeArr.push(engineer);
         addEmployee();
 
     } else if (employee === "Intern"){
-        let intern = await internInput();
-        employeeData.school = intern.school;
-        employeeArr.push(employeeData);
-        //create Intern class here
-        ///////////////////////////
+        let school = await internInput();
+        let intern = new Intern(name, id, email, school.school);
+        employeeArr.push(intern);
         addEmployee();
     }
 }
