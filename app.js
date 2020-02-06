@@ -5,6 +5,7 @@ const questions = require('./lib/questions');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const handleRequest = require('./lib/render');
 
 const PORT = 8080;
 let employeeArr = [];
@@ -57,26 +58,4 @@ async function employeeCLI() {
     }
 }
 
-function renderHTML (res) {
-    fs.readFile('./output/index.html', (err, data) => {
-        if (err) throw err;
-        res.writeHead(200, {"Content-Type": "text/html"});
-        res.write(data);
-        res.end();
-    })
-}
-
-function handleRequest(req, res) {
-    let path = req.url
-
-    switch(path) {
-        case "/":
-            return renderHTML(res);
-        
-        default:
-            return res.end("404 page not found");
-    }
-}
-
-//Kicking things off for testing
 employeeCLI();
